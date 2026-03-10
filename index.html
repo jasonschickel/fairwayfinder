@@ -274,7 +274,7 @@
   <div class="container">
     <div class="topbar-date" id="topbar-date"></div>
     <div class="topbar-links">
-      <a href="#">PGA Tour</a><a href="#">LIV Golf</a><a href="#">DP World Tour</a><a href="#">LPGA</a><a href="#">Rankings</a>
+      <a href="https://www.pgatour.com" target="_blank" rel="noopener">PGA Tour</a><a href="https://www.livgolf.com" target="_blank" rel="noopener">LIV Golf</a><a href="https://www.europeantour.com" target="_blank" rel="noopener">DP World Tour</a><a href="https://www.lpga.com" target="_blank" rel="noopener">LPGA</a><a href="https://www.owgr.com" target="_blank" rel="noopener">Rankings</a>
     </div>
   </div>
 </div>
@@ -476,16 +476,16 @@
       </div>
       <div>
         <div class="footer-col-title">Tours</div>
-        <ul class="footer-links"><li><a href="#">PGA Tour</a></li><li><a href="#">LIV Golf</a></li><li><a href="#">DP World Tour</a></li><li><a href="#">LPGA</a></li></ul>
+        <ul class="footer-links"><li><a href="https://www.pgatour.com" target="_blank" rel="noopener">PGA Tour</a></li><li><a href="https://www.livgolf.com" target="_blank" rel="noopener">LIV Golf</a></li><li><a href="https://www.europeantour.com" target="_blank" rel="noopener">DP World Tour</a></li><li><a href="https://www.lpga.com" target="_blank" rel="noopener">LPGA</a></li></ul>
       </div>
       <div>
         <div class="footer-col-title">About</div>
-        <ul class="footer-links"><li><a href="#">About FairwayFeed</a></li><li><a href="#">Advertise</a></li><li><a href="#">Contact</a></li><li><a href="#">Sitemap</a></li></ul>
+        <ul class="footer-links"><li><a href="/privacy.html">About FairwayFeed</a></li><li><a href="mailto:hello@fairwayfeed.golf">Advertise</a></li><li><a href="mailto:hello@fairwayfeed.golf">Contact</a></li><li><a href="/sitemap.xml">Sitemap</a></li></ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 FairwayFeed.golf · All rights reserved</span>
-      <div class="footer-bottom-links"><a href="/privacy.html">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Cookie Policy</a></div>
+      <div class="footer-bottom-links"><a href="/privacy.html">Privacy Policy</a><a href="/privacy.html">Terms of Use</a><a href="/privacy.html">Cookie Policy</a></div>
     </div>
   </div>
 </footer>
@@ -736,9 +736,9 @@ function renderGearGrid(items) {
   const el = document.getElementById('gear-grid');
   el.innerHTML = items.length
     ? items.slice(0,3).map((item,i) => gearCard(item,i)).join('')
-    : `<div class="card"><div class="card-img"><div class="img-placeholder img-ph-4">🏌️</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Callaway Paradym Ai Smoke — Full Review</div><div class="card-meta"><span>MyGolfSpy</span></div></div></div>
-       <div class="card"><div class="card-img"><div class="img-placeholder img-ph-2">⛳</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Ping G430 Irons: Still the Best Game Improvement?</div><div class="card-meta"><span>Golf Digest</span></div></div></div>
-       <div class="card"><div class="card-img"><div class="img-placeholder img-ph-1">🎯</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Titleist Pro V1 vs Pro V1x 2025 Comparison</div><div class="card-meta"><span>GolfWRX</span></div></div></div>`;
+    : `<a class="card" href="https://www.amazon.com/s?k=callaway+paradym+ai+smoke+driver&tag=fairwayfeed20-20" target="_blank" rel="noopener"><div class="card-img"><div class="img-placeholder img-ph-4">🏌️</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Callaway Paradym Ai Smoke — Full Review</div><div class="card-meta"><span>MyGolfSpy</span></div><a class="affiliate-btn" href="https://www.amazon.com/s?k=callaway+paradym+ai+smoke+driver&tag=fairwayfeed20-20" target="_blank" rel="noopener">Shop on Amazon →</a></div></a>
+       <a class="card" href="https://www.amazon.com/s?k=ping+g430+irons&tag=fairwayfeed20-20" target="_blank" rel="noopener"><div class="card-img"><div class="img-placeholder img-ph-2">⛳</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Ping G430 Irons: Still the Best Game Improvement?</div><div class="card-meta"><span>Golf Digest</span></div><a class="affiliate-btn" href="https://www.amazon.com/s?k=ping+g430+irons&tag=fairwayfeed20-20" target="_blank" rel="noopener">Shop on Amazon →</a></div></a>
+       <a class="card" href="https://www.amazon.com/s?k=titleist+pro+v1+golf+balls&tag=fairwayfeed20-20" target="_blank" rel="noopener"><div class="card-img"><div class="img-placeholder img-ph-1">🎯</div></div><div class="card-body"><div class="card-section-label">Equipment</div><div class="card-title">Titleist Pro V1 vs Pro V1x 2025 Comparison</div><div class="card-meta"><span>GolfWRX</span></div><a class="affiliate-btn" href="https://www.amazon.com/s?k=titleist+pro+v1+golf+balls&tag=fairwayfeed20-20" target="_blank" rel="noopener">Shop on Amazon →</a></div></a>`;
   const upd = document.getElementById('gear-updated');
   if (upd) upd.textContent = `Last updated: ${nowStr()}`;
 }
