@@ -498,6 +498,7 @@
 'use strict';
 
 const YT_API_KEY = 'AIzaSyAd6L0sBqZArthzLSB44qy1iDM-A0wOxYU';
+const AMAZON_TAG = 'fairwayfeed20-20';
 
 // RSS proxy — converts any RSS feed to JSON for free
 // rss2json.com free tier: 10,000 calls/day, more than enough
@@ -667,24 +668,28 @@ function tipCard(v) {
 const gradients = ['img-ph-1','img-ph-2','img-ph-3','img-ph-4','img-ph-5'];
 function gearCard(item, i) {
   const ph = gradients[i % gradients.length];
-  return `
-    <a class="card" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">
-      <div class="card-img">
-        ${item.image
-          ? `<img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"img-placeholder ${ph}\\">🏌️</div>'">`
-          : `<div class="img-placeholder ${ph}">🏌️</div>`}
-        <div class="source-badge">Gear News</div>
-      </div>
-      <div class="card-body">
-        <div class="card-section-label">🏷️ Equipment</div>
-        <div class="card-title">${esc(item.title)}</div>
-        ${item.description ? `<p class="card-excerpt">${esc(item.description.slice(0,120))}…</p>` : ''}
-        <div class="card-meta">
-          <span>${esc(item.source)}</span>
-          ${item.published ? `<span class="sep">${timeAgo(item.published)}</span>` : ''}
-        </div>
-      </div>
-    </a>`;
+  const searchQuery = encodeURIComponent(item.title.split(' ').slice(0,6).join(' '));
+  const amazonUrl = 'https://www.amazon.com/s?k=' + searchQuery + '&tag=' + AMAZON_TAG;
+  return '<div class="card">' +
+    '<a href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer" style="display:block;">' +
+      '<div class="card-img">' +
+        (item.image ? '<img src="' + esc(item.image) + '" alt="' + esc(item.title) + '" loading="lazy">' : '<div class="img-placeholder ' + ph + '">🏌️</div>') +
+        '<div class="source-badge">Gear News</div>' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<div class="card-section-label">🏷️ Equipment</div>' +
+        '<div class="card-title">' + esc(item.title) + '</div>' +
+        (item.description ? '<p class="card-excerpt">' + esc(item.description.slice(0,120)) + '…</p>' : '') +
+        '<div class="card-meta">' +
+          '<span>' + esc(item.source) + '</span>' +
+          (item.published ? '<span class="sep">' + timeAgo(item.published) + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+    '</a>' +
+    '<div style="padding:0 1.2rem 1.2rem;">' +
+      '<a class="affiliate-btn" href="' + amazonUrl + '" target="_blank" rel="noopener noreferrer">Shop on Amazon →</a>' +
+    '</div>' +
+  '</div>';
 }
 
 function courseCard(item, i) {
